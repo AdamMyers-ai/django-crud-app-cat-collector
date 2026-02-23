@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Cats
 
 
 class Cat:
@@ -28,4 +28,5 @@ def about(request):
 
 
 def cat_index(request):
+    cats = Cats.objects.all()
     return render(request, "cats/index.html", {"cats": cats})
